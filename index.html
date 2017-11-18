@@ -22,23 +22,27 @@
             {
                 "type": "2017 Bentley Bentayga",
                 "dailyPrice": "Bentleys cost $370.00/per day"
-            }]
+            }],
+            rentBMW: function() {
+                document.getElementById("bmwAvail").innerHTML=this.beemersAvail--;
+            },
+            rentRover: function() {
+                document.getElementById("roverAvail").innerHTML=this.roversAvail--;
+            },
+            rentBent: function() {
+                document.getElementById("bentAvail").innerHTML=this.bentsAvail--;
+            }
             
         };
+        
         function updateAvail() {
             document.getElementById("name").innerHTML=luxuryCars.name;
             document.getElementById("carType").innerHTML=luxuryCars.carTypes;
             document.getElementById("bmwRental").innerHTML=luxuryCars.beemersAvail;
             document.getElementById("roverRental").innerHTML=luxuryCars.roversAvail;
         };
-        function rentBMW() {
-            document.getElementById("bmwRental").innerHTML=luxuryCars.beemersAvail--;
-            // document.getElementById("bmwBooked").innerHTML=luxuryCars.beemersBooked++;
-        };
-        function rentRover() {
-            document.getElementById("roverRental").innerHTML=luxuryCars.roversAvail--;
-            // document.getElementById("roverBooked").innerHTML=luxuryCars.roversBooked++;
-        }
+        
+        
         </script>
         
         <style>
@@ -50,21 +54,58 @@
         </style>
     </head>
     
-    <body style="margin=0">
+    <body>
+        <div>
+            <form id="renterForm">
+                <fieldset>
+                    <legend>Your Reservation</legend>
+                    <div>
+                        <label>Renter Name: </label>
+                        <input id="renterInfo" type=text pattern="[A-Za-z]" placeholder="Enter Your Name Here" required="">
+                    </div>
+                    <div>
+                        <label>Car Type: </label>
+                        <select id="inCarLot">
+                            <option value="blank">Select Your Car</option>
+                            <option value="2017 BMW 7-Series">2017 BMW 7-Series</option>
+                            <option value="2018 Range Rover">2018 Range Rover</option>
+                            <option value="2017 Bentley Bentayga">2017 Bentley Bentayga</option>
+                        </select>
+                    </div>
+                    <div>
+                        <input id="rentButton" type="submit">
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        
         <!--<img src="https://s1.paultan.org/image/BMW-7-Series-Wallpaper-20-1920x1200-850x531.jpg" id="mainImg">-->
         <h1>Luxury Car Rentals</h1>
-        <p id="name"></p>
         
+        <!--My BMW Details-->
         <h2>Car Types</h2>
-        <p id="carType"></p>
-        
+        <p id="BMW"></p>
         <h2>BMW 7-Series Available</h2>
-        <p id="bmwRental"></p>
-        <!--<p id="bmwBooked">BMWs Booked</p>-->
+        <p id="bmwAvail"></p>
+        <h2>Price</h2>
+        <p id="bmwPrice"></p>
         
+        <!--My RangeRover Details-->
+        <h2>Car Types</h2>
+        <p id="Range"></p>
         <h2>Range Rovers Available</h2>
-        <p id="roverRental"></p>
-        <!--<p id="roverBooked">Rovers Booked</p>-->
+        <p id="roverAvail"></p>
+        <h2>Price</h2>
+        <p id="rangePrice"></p>
+        
+        <!--My Bentley Details-->
+        <h2>Car Types</h2>
+        <p id="Bentley"></p>
+        <h2>Bentley Bentaygas Available</h2>
+        <p id="bentAvail"></p>
+        <h2>Price</h2>
+        <p id="bentPrice"></p>
+        
         
         <button onclick="updateAvail()">Update Availability</button>
         <button onclick="rentBMW()">Rent 1 BMW 7-Series</button>
