@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Car Rentals</title>
+        <script>
+            var luxuryCars = {
+            carTypes: ["BMWs", " Range Rovers", "Bentleys"],
+            beemersAvail: 27,
+            roversAvail: 18,
+            bentsAvail: 9,
+            beemersBooked: 0,
+            roversBooked: 0,
+            bentsBooked: 0,
+            BMWDailyCost: "BMWs cost $153.00/per day",
+            RangeDailyCost: "Range Rovers cost $250.00/per day",
+            BentDailyCost: "Bentleys cost $370.00/per day"
+        };
+        function updateAvail() {
+            document.getElementById("name").innerHTML=luxuryCars.name;
+            document.getElementById("carType").innerHTML=luxuryCars.carTypes;
+            document.getElementById("bmwRental").innerHTML=luxuryCars.beemersAvail;
+            document.getElementById("roverRental").innerHTML=luxuryCars.roversAvail;
+        };
+        function rentBMW() {
+            document.getElementById("bmwRental").innerHTML=luxuryCars.beemersAvail--;
+            // document.getElementById("bmwBooked").innerHTML=luxuryCars.beemersBooked++;
+        };
+        function rentRover() {
+            document.getElementById("roverRental").innerHTML=luxuryCars.roversAvail--;
+            // document.getElementById("roverBooked").innerHTML=luxuryCars.roversBooked++;
+        }
+        
+                </script>
+       
+    </head>
+    
+    <body style="margin=0">
+        <h1>Luxury Car Rentals</h1>
+        <form action="submit">
+          Renter name: <input type="text" name="fullname">
+          <select name="rentals" id=carLot>
+            <option value="Make Selection">Select Your Vehicle</option>
+            <option value="2017 BMW 7-Series">2017 BMW 7-Series</option>
+            <option value="2018 Range Rover">2018 Range Rover</option>
+            <option value="2017 Bentley Bentayga">2017 Bentley Bentayga</option>
+          </select>
+        </form>
+        
+    
+        <p id="bmw"></p>
+        
+        <p id="range"></p>
+        
+        <p id="bentley"></p>
+        
+        
+        <p id="name"></p>
+        
+        <h2>Car Types</h2>
+        <p id="carType"></p>
+        
+        <h2>BMW 7-Series Available</h2>
+        <p id="bmwRental"></p>
+        <!--<p id="bmwBooked">BMWs Booked</p>-->
+        
+        <h2>Range Rovers Available</h2>
+        <p id="roverRental"></p>
+        <!--<p id="roverBooked">Rovers Booked</p>-->
+        
+        <button onclick="updateAvail()">Update Availability</button>
+        <button onclick="rentBMW()">Rent 1 BMW 7-Series</button>
+        <button onclick="rentRover()">Rent 1 Range Rover</button>
+        
+    </body>
+    
+</html>
+
