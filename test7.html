@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Upgraded Car Rentals</title>
+        <script>
+            var luxuryCars = {
+            "name": "Luxury Cars",
+            "beemersAvail": 27,
+            "roversAvail": 18,
+            "bentsAvail": 11,
+            "beemersBooked": 18,
+            "roversBooked": 9,
+            "bentsBooked": 2,
+            "carTypes": [{
+                "type": "2017 BMW 7-Series",
+                "dailyPrice": "BMWs cost $153.00/per day"
+            },
+            {
+                "type": "2018 Range Rover",
+                "dailyPrice": "Range Rovers cost $250.00/per day"
+            },
+            {
+                "type": "2017 Bentley Bentayga",
+                "dailyPrice": "Bentleys cost $370.00/per day"
+            }],
+            rentBMW: function() {
+                document.getElementById("bmwAvail").innerHTML=this.beemersAvail;
+            },
+            beemBookings: function() {
+                this.beemersBooked;
+            },
+        };
+        var renter = {
+            "theRenter": [{
+                "name": [], 
+                "car": []
+            }]
+        };
+        
+        function updatedBMWRentalInfo() {
+            var updatedBeemerRentalInfo = document.getElementById("inCarLot").value;
+            document.getElementById("BMW").innerHTML=luxuryCars.carTypes[0].type;
+            // document.getElementById("bmwAvail").innerHTML=123;
+            // document.getElementById("bmwPrice").innerHTML=456;
+            document.getElementById("bmwAvail").innerHTML=luxuryCars.beemersAvail;
+            document.getElementById("bmwPrice").innerHTML=luxuryCars.carTypes[0].dailyPrice;
+        };
+        function clearAllPTags() {
+            document.getElementById("BMW").innerHTML='';
+            document.getElementById("bmwAvail").innerHTML='';
+            document.getElementById("bmwPrice").innerHTML='';
+        };
+        function runUpdatedRentalFunctions() {
+            
+            if (document.getElementById("inCarLot").value === "2017 BMW 7-Series"){
+                updatedBMWRentalInfo();
+            }
+            else {
+                clearAllPTags();
+            }
+        };
+
+        
+        </script>
+        
+        <style>
+            /*#mainImg{*/
+            /*    width: 100vw;*/
+            /*    z-index: -1;*/
+            /*}*/
+            
+        </style>
+    </head>
+    
+    <body>
+        <div>
+            <form id="renterForm" name="renterForm">
+                <fieldset>
+                    <legend>Your Reservation</legend>
+                    <div>
+                        <label>Renter Name: </label>
+                        <input id="renterInfo" name="formInput" type="text" placeholder="Enter Your Name Here" required>
+                    </div>
+                    <div>
+                        <label>Car Type: </label>
+                        <select id="inCarLot" onchange="runUpdatedRentalFunctions()" required>
+                            <option value="blank">Select Your Car</option>
+                            <option value="2017 BMW 7-Series">2017 BMW 7-Series</option>
+                            <!--<option value="2018 Range Rover">2018 Range Rover</option>-->
+                            <!--<option value="2017 Bentley Bentayga">2017 Bentley Bentayga</option>-->
+                        </select>
+                    </div>
+                    <div>
+                        <input id="rentButton" type="submit">
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        
+        <!--<img src="https://s1.paultan.org/image/BMW-7-Series-Wallpaper-20-1920x1200-850x531.jpg" id="mainImg">-->
+        <h1>Luxury Car Rentals</h1>
+        
+        <!--My BMW Details-->
+        <h2>Car Types</h2>
+        <p id="BMW"> </p>
+        <h2>BMW 7-Series Available</h2>
+        <p id="bmwAvail"></p>
+        <h2>Price</h2>
+        <p id="bmwPrice"></p>
+        
+        <!--My RangeRover Details-->
+        <!--<h2>Car Types</h2>-->
+        <!--<p id="Range"></p>-->
+        <!--<h2>Range Rovers Available</h2>-->
+        <!--<p id="rangeAvail"></p>-->
+        <!--<h2>Price</h2>-->
+        <!--<p id="rangePrice"></p>-->
+        
+        <!--My Bentley Details-->
+        <!--<h2>Car Types</h2>-->
+        <!--<p id="Bentley"></p>-->
+        <!--<h2>Bentley Bentaygas Available</h2>-->
+        <!--<p id="bentAvail"></p>-->
+        <!--<h2>Price</h2>-->
+        <!--<p id="bentPrice"></p>-->
+        
+        
+        <button onclick="updateAvail()">Update Availability</button>
+        <button onclick="rentBMW()">Rent 1 BMW 7-Series</button>
+        <button onclick="rentRover()">Rent 1 Range Rover</button>
+        
+    </body>
+    
+</html>
+
