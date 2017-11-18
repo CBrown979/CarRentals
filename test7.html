@@ -37,29 +37,27 @@
             }]
         };
         
-        function updatedBMWRentalInfo() {
-            var updatedBeemerRentalInfo = document.getElementById("inCarLot").value;
-            document.getElementById("BMW").innerHTML=luxuryCars.carTypes[0].type;
-            // document.getElementById("bmwAvail").innerHTML=123;
-            // document.getElementById("bmwPrice").innerHTML=456;
-            document.getElementById("bmwAvail").innerHTML=luxuryCars.beemersAvail;
-            document.getElementById("bmwPrice").innerHTML=luxuryCars.carTypes[0].dailyPrice;
+        function dropDownCarSelections() {
+            var carChosenByUserFromDropDown = document.getElementById("inCarLot").value;
+            if (carChosenByUserFromDropDown === "2017 BMW 7-Series"){
+                document.getElementById("BMW").innerHTML=luxuryCars.carTypes[0].type;
+                document.getElementById("bmwAvail").innerHTML=luxuryCars.beemersAvail;
+                document.getElementById("bmwPrice").innerHTML=luxuryCars.carTypes[0].dailyPrice;
+            } else if (carChosenByUserFromDropDown === "2018 Range Rover"){
+                document.getElementById("Range").innerHTML=luxuryCars.carTypes[1].type;
+                document.getElementById("rangeAvail").innerHTML=luxuryCars.roversAvail;
+                document.getElementById("rangePrice").innerHTML=luxuryCars.carTypes[1].dailyPrice;
+            } else if (carChosenByUserFromDropDown === "2017 Bentley Bentayga"){
+                document.getElementById("Bentley").innerHTML=luxuryCars.carTypes[2].type;
+                document.getElementById("bentAvail").innerHTML=luxuryCars.roversAvail;
+                document.getElementById("bentPrice").innerHTML=luxuryCars.carTypes[2].dailyPrice;
+            }
         };
         function clearAllPTags() {
             document.getElementById("BMW").innerHTML='';
             document.getElementById("bmwAvail").innerHTML='';
             document.getElementById("bmwPrice").innerHTML='';
         };
-        function runUpdatedRentalFunctions() {
-            
-            if (document.getElementById("inCarLot").value === "2017 BMW 7-Series"){
-                updatedBMWRentalInfo();
-            }
-            else {
-                clearAllPTags();
-            }
-        };
-
         
         </script>
         
@@ -83,11 +81,11 @@
                     </div>
                     <div>
                         <label>Car Type: </label>
-                        <select id="inCarLot" onchange="runUpdatedRentalFunctions()" required>
+                        <select id="inCarLot" onchange="dropDownCarSelections()" required>
                             <option value="blank">Select Your Car</option>
                             <option value="2017 BMW 7-Series">2017 BMW 7-Series</option>
-                            <!--<option value="2018 Range Rover">2018 Range Rover</option>-->
-                            <!--<option value="2017 Bentley Bentayga">2017 Bentley Bentayga</option>-->
+                            <option value="2018 Range Rover">2018 Range Rover</option>
+                            <option value="2017 Bentley Bentayga">2017 Bentley Bentayga</option>
                         </select>
                     </div>
                     <div>
@@ -109,20 +107,20 @@
         <p id="bmwPrice"></p>
         
         <!--My RangeRover Details-->
-        <!--<h2>Car Types</h2>-->
-        <!--<p id="Range"></p>-->
-        <!--<h2>Range Rovers Available</h2>-->
-        <!--<p id="rangeAvail"></p>-->
-        <!--<h2>Price</h2>-->
-        <!--<p id="rangePrice"></p>-->
+        <h2>Car Types</h2>
+        <p id="Range"></p>
+        <h2>Range Rovers Available</h2>
+        <p id="rangeAvail"></p>
+        <h2>Price</h2>
+        <p id="rangePrice"></p>
         
         <!--My Bentley Details-->
-        <!--<h2>Car Types</h2>-->
-        <!--<p id="Bentley"></p>-->
-        <!--<h2>Bentley Bentaygas Available</h2>-->
-        <!--<p id="bentAvail"></p>-->
-        <!--<h2>Price</h2>-->
-        <!--<p id="bentPrice"></p>-->
+        <h2>Car Types</h2>
+        <p id="Bentley"></p>
+        <h2>Bentley Bentaygas Available</h2>
+        <p id="bentAvail"></p>
+        <h2>Price</h2>
+        <p id="bentPrice"></p>
         
         
         <button onclick="updateAvail()">Update Availability</button>
