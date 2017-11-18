@@ -1,15 +1,29 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Car Rentals</title>
+        <title>The Peoples CarRental</title>
         <script>
             var luxuryCars = {
-            name: "The Peoples Rentals",
-            carTypes: ["BMWs", " Range Rovers"],
-            beemersAvail: 27,
-            roversAvail: 18,
-            beemersBooked: 0,
-            roversBooked: 0
+            "name": "Luxury Cars",
+            "beemersAvail": 27,
+            "roversAvail": 18,
+            "bentsAvail": 11,
+            "beemersBooked": 18,
+            "roversBooked": 9,
+            "bentsBooked": 2,
+            "carTypes": [{
+                "type": "2017 BMW 7-Series",
+                "dailyPrice": "BMWs cost $153.00/per day"
+            },
+            {
+                "type": "2018 Range Rover",
+                "dailyPrice": "Range Rovers cost $250.00/per day"
+            },
+            {
+                "type": "2017 Bentley Bentayga",
+                "dailyPrice": "Bentleys cost $370.00/per day"
+            }]
+            
         };
         function updateAvail() {
             document.getElementById("name").innerHTML=luxuryCars.name;
@@ -26,9 +40,18 @@
             // document.getElementById("roverBooked").innerHTML=luxuryCars.roversBooked++;
         }
         </script>
+        
+        <style>
+            /*#mainImg{*/
+            /*    width: 100vw;*/
+            /*    z-index: -1;*/
+            /*}*/
+            
+        </style>
     </head>
     
-    <body>
+    <body style="margin=0">
+        <!--<img src="https://s1.paultan.org/image/BMW-7-Series-Wallpaper-20-1920x1200-850x531.jpg" id="mainImg">-->
         <h1>Luxury Car Rentals</h1>
         <p id="name"></p>
         
