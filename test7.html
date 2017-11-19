@@ -23,12 +23,12 @@
                 "type": "2017 Bentley Bentayga",
                 "dailyPrice": "Bentleys cost $370.00/per day"
             }],
-            rentBMW: function() {
-                document.getElementById("bmwAvail").innerHTML=this.beemersAvail;
-            },
-            beemBookings: function() {
-                this.beemersBooked;
-            },
+            // rentBMW: function() {
+            //     document.getElementById("bmwAvail").innerHTML=this.beemersAvail;
+            // },
+            // beemBookings: function() {
+            //     this.beemersBooked;
+            // },
         };
         var renter = {
             theRenter: [{
@@ -36,11 +36,12 @@
                         car: []
             }]
         };
-        // document.getElementById("rentButton").onclick=function(){
-        //     var renterName = document.getElementById("renterInfo").value;
-        //     var rentedCar = document.getElementById("inCarLot").value;
-        //     if (renterName.length > 0 && rentedCar===)
-        // } Working on this piece of code for Renter.push functionality
+        document.getElementById("rentButton").onclick=function(){
+            var renterName = document.getElementById("renterInfo").value;
+            var rentedCar = document.getElementById("inCarLot").value;
+            console.log(renterName, rentedCar);
+            // if (renterName.length > 0 && rentedCar===)
+        } 
         
         function dropDownCarSelections() {
             var carChosenByUserFromDropDown = document.getElementById("inCarLot").value;
@@ -58,6 +59,13 @@
                 document.getElementById("carPrice").innerHTML=luxuryCars.carTypes[2].dailyPrice;
             }
         };
+        function rentCar(){
+             var rentMe = document.getElementById("inCarLot").value;
+             if (rentMe === "blank"){
+                 alert("Please select a vehicle");
+             } 
+        };
+        
         
         </script>
         
@@ -81,9 +89,6 @@
                             <option value="2017 Bentley Bentayga">2017 Bentley Bentayga</option>
                         </select>
                     </div>
-                    <div>
-                        <input id="rentButton" type="submit" value="Rent Vehicle">
-                    </div>
                 </fieldset>
             </form>
         </div>
@@ -98,9 +103,8 @@
         <h2>Price</h2>
         <p id="carPrice"></p>
         
-        <button onclick="updateAvail()">Update Availability</button>
-        <button onclick="rentBMW()">Rent 1 BMW 7-Series</button>
-        <button onclick="rentRover()">Rent 1 Range Rover</button>
+        <button onclick="rentCar()">Rent This Car Now</button>
+        <!--<button onclick="rentRover()">Rent 1 Range Rover</button>-->
         
     </body>
     
