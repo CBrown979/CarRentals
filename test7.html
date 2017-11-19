@@ -31,32 +31,32 @@
             },
         };
         var renter = {
-            "theRenter": [{
-                "name": [], 
-                "car": []
+            theRenter: [{
+                        name: [], 
+                        car: []
             }]
         };
+        // document.getElementById("rentButton").onclick=function(){
+        //     var renterName = document.getElementById("renterInfo").value;
+        //     var rentedCar = document.getElementById("inCarLot").value;
+        //     if (renterName.length > 0 && rentedCar===)
+        // } Working on this piece of code for Renter.push functionality
         
         function dropDownCarSelections() {
             var carChosenByUserFromDropDown = document.getElementById("inCarLot").value;
             if (carChosenByUserFromDropDown === "2017 BMW 7-Series"){
-                document.getElementById("BMW").innerHTML=luxuryCars.carTypes[0].type;
-                document.getElementById("bmwAvail").innerHTML=luxuryCars.beemersAvail;
-                document.getElementById("bmwPrice").innerHTML=luxuryCars.carTypes[0].dailyPrice;
+                document.getElementById("types").innerHTML=luxuryCars.carTypes[0].type;
+                document.getElementById("numAvail").innerHTML=luxuryCars.beemersAvail;
+                document.getElementById("carPrice").innerHTML=luxuryCars.carTypes[0].dailyPrice;
             } else if (carChosenByUserFromDropDown === "2018 Range Rover"){
-                document.getElementById("Range").innerHTML=luxuryCars.carTypes[1].type;
-                document.getElementById("rangeAvail").innerHTML=luxuryCars.roversAvail;
-                document.getElementById("rangePrice").innerHTML=luxuryCars.carTypes[1].dailyPrice;
+                document.getElementById("types").innerHTML=luxuryCars.carTypes[1].type;
+                document.getElementById("numAvail").innerHTML=luxuryCars.roversAvail;
+                document.getElementById("carPrice").innerHTML=luxuryCars.carTypes[1].dailyPrice;
             } else if (carChosenByUserFromDropDown === "2017 Bentley Bentayga"){
-                document.getElementById("Bentley").innerHTML=luxuryCars.carTypes[2].type;
-                document.getElementById("bentAvail").innerHTML=luxuryCars.roversAvail;
-                document.getElementById("bentPrice").innerHTML=luxuryCars.carTypes[2].dailyPrice;
+                document.getElementById("types").innerHTML=luxuryCars.carTypes[2].type;
+                document.getElementById("numAvail").innerHTML=luxuryCars.roversAvail;
+                document.getElementById("carPrice").innerHTML=luxuryCars.carTypes[2].dailyPrice;
             }
-        };
-        function clearAllPTags() {
-            document.getElementById("BMW").innerHTML='';
-            document.getElementById("bmwAvail").innerHTML='';
-            document.getElementById("bmwPrice").innerHTML='';
         };
         
         </script>
@@ -72,7 +72,7 @@
     
     <body>
         <div>
-            <form id="renterForm" name="renterForm">
+            <form id="renterForm">
                 <fieldset>
                     <legend>Your Reservation</legend>
                     <div>
@@ -89,7 +89,7 @@
                         </select>
                     </div>
                     <div>
-                        <input id="rentButton" type="submit">
+                        <input id="rentButton" type="submit" value="Rent Vehicle">
                     </div>
                 </fieldset>
             </form>
@@ -98,30 +98,13 @@
         <!--<img src="https://s1.paultan.org/image/BMW-7-Series-Wallpaper-20-1920x1200-850x531.jpg" id="mainImg">-->
         <h1>Luxury Car Rentals</h1>
         
-        <!--My BMW Details-->
-        <h2>Car Types</h2>
-        <p id="BMW"> </p>
-        <h2>BMW 7-Series Available</h2>
-        <p id="bmwAvail"></p>
+        <!--All Car Details-->
+        <h2>Car Type</h2>
+        <p id="types"> </p>
+        <h2>Availability</h2>
+        <p id="numAvail"></p>
         <h2>Price</h2>
-        <p id="bmwPrice"></p>
-        
-        <!--My RangeRover Details-->
-        <h2>Car Types</h2>
-        <p id="Range"></p>
-        <h2>Range Rovers Available</h2>
-        <p id="rangeAvail"></p>
-        <h2>Price</h2>
-        <p id="rangePrice"></p>
-        
-        <!--My Bentley Details-->
-        <h2>Car Types</h2>
-        <p id="Bentley"></p>
-        <h2>Bentley Bentaygas Available</h2>
-        <p id="bentAvail"></p>
-        <h2>Price</h2>
-        <p id="bentPrice"></p>
-        
+        <p id="carPrice"></p>
         
         <button onclick="updateAvail()">Update Availability</button>
         <button onclick="rentBMW()">Rent 1 BMW 7-Series</button>
