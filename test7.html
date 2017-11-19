@@ -23,24 +23,14 @@
                 "type": "2017 Bentley Bentayga",
                 "dailyPrice": "Bentleys cost $370.00/per day"
             }],
-            // rentBMW: function() {
-            //     document.getElementById("bmwAvail").innerHTML=this.beemersAvail;
-            // },
-            // beemBookings: function() {
-            //     this.beemersBooked;
-            // },
         };
         var renter = {
-            theRenter: [{
-                        theName: [], 
-                        theCar: []
-            }]
-        };
+            theRenters: []
+            };
         document.getElementById("rentButton").onclick=function(){
             var renterName = document.getElementById("renterInfo").value;
             var rentedCar = document.getElementById("inCarLot").value;
             console.log(renterName, rentedCar);
-            // if (renterName.length > 0 && rentedCar===)
         } 
         
         function dropDownCarSelections() {
@@ -69,16 +59,19 @@
         
         function rentCar(){
              var carChosenByUserFromDropDown = document.getElementById("inCarLot").value;
+             var renterName = document.getElementById("renterInfo").value;
              if (carChosenByUserFromDropDown === "2017 BMW 7-Series"){
-                document.getElementById("numAvail").innerHTML=luxuryCars.beemersAvail--;
-            } else if (carChosenByUserFromDropDown === "2018 Range Rover"){
-                document.getElementById("numAvail").innerHTML=luxuryCars.roversAvail--;
-            } else if (carChosenByUserFromDropDown === "2017 Bentley Bentayga"){
-                document.getElementById("numAvail").innerHTML=luxuryCars.roversAvail--;
-            }
+                 document.getElementById("numAvail").innerHTML=luxuryCars.beemersAvail--;
+             } else if (carChosenByUserFromDropDown === "2018 Range Rover") {
+                 document.getElementById("numAvail").innerHTML=luxuryCars.roversAvail--;
+             } else if (carChosenByUserFromDropDown === "2017 Bentley Bentayga") {
+                 document.getElementById("numAvail").innerHTML=luxuryCars.bentsAvail--;
+             } else if (renterName.length >0 && carChosenByUserFromDropDown !== "blank") {
+                 renter.theRenters.push({theRenter: renterName, carRented: carChosenByUserFromDropDown
+                 });
+             }
+             document.getElementById("finalRent").innerHTML="Great choice " + renterName + ", the " + carChosenByUserFromDropDown + " is a great car. Thank you for your order!"
         };
-        
-        
         </script>
         
     </head>
@@ -116,7 +109,6 @@
         <p id="carPrice"></p>
         
         <button id="rentCarButton" onclick="infoNotEntered(); rentCar()">Rent This Car Now</button>
-        <!--<button onclick="rentRover()">Rent 1 Range Rover</button>-->
         <div>
             <p id="finalRent"></p>
         </div>
