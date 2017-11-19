@@ -59,12 +59,23 @@
                 document.getElementById("carPrice").innerHTML=luxuryCars.carTypes[2].dailyPrice;
             }
         };
-        function rentCar(){
+        function infoNotEntered(){
              var rentMe = document.getElementById("inCarLot").value;
-             if (rentMe === "blank"){
-                 alert("Please select a vehicle");
-             } 
+             var renterName=document.getElementById("renterInfo").value;
+             if (rentMe === "blank" || renterName === ""){
+                 alert("Please enter missing information");
+             }
         };
+        
+        // function rentCar(){
+        //      var rentMe = document.getElementById("inCarLot").value;
+        //      var renterName=document.getElementById("renterInfo").value;
+        //      if (rentMe === "blank"){
+        //          alert("Please select a vehicle");
+        //      } else if (renterName === ""){
+        //          alert("Please enter your name");
+        //      } else if (rentMe === "blank" && renterName === "");
+        // };
         
         
         </script>
@@ -103,9 +114,13 @@
         <h2>Price</h2>
         <p id="carPrice"></p>
         
-        <button onclick="rentCar()">Rent This Car Now</button>
+        <button id="rentCarButton" onclick="infoNotEntered()">Rent This Car Now</button>
         <!--<button onclick="rentRover()">Rent 1 Range Rover</button>-->
-        
+        <div>
+            <p>
+                
+            </p>
+        </div>
     </body>
     
 </html>
