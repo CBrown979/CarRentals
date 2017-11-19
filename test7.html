@@ -32,8 +32,8 @@
         };
         var renter = {
             theRenter: [{
-                        name: [], 
-                        car: []
+                        theName: [], 
+                        theCar: []
             }]
         };
         document.getElementById("rentButton").onclick=function(){
@@ -47,15 +47,15 @@
             var carChosenByUserFromDropDown = document.getElementById("inCarLot").value;
             if (carChosenByUserFromDropDown === "2017 BMW 7-Series"){
                 document.getElementById("types").innerHTML=luxuryCars.carTypes[0].type;
-                document.getElementById("numAvail").innerHTML=luxuryCars.beemersAvail;
+                document.getElementById("numAvail").innerHTML=luxuryCars.beemersAvail--;
                 document.getElementById("carPrice").innerHTML=luxuryCars.carTypes[0].dailyPrice;
             } else if (carChosenByUserFromDropDown === "2018 Range Rover"){
                 document.getElementById("types").innerHTML=luxuryCars.carTypes[1].type;
-                document.getElementById("numAvail").innerHTML=luxuryCars.roversAvail;
+                document.getElementById("numAvail").innerHTML=luxuryCars.roversAvail--;
                 document.getElementById("carPrice").innerHTML=luxuryCars.carTypes[1].dailyPrice;
             } else if (carChosenByUserFromDropDown === "2017 Bentley Bentayga"){
                 document.getElementById("types").innerHTML=luxuryCars.carTypes[2].type;
-                document.getElementById("numAvail").innerHTML=luxuryCars.roversAvail;
+                document.getElementById("numAvail").innerHTML=luxuryCars.bentsAvail--;
                 document.getElementById("carPrice").innerHTML=luxuryCars.carTypes[2].dailyPrice;
             }
         };
@@ -67,15 +67,16 @@
              }
         };
         
-        // function rentCar(){
-        //      var rentMe = document.getElementById("inCarLot").value;
-        //      var renterName=document.getElementById("renterInfo").value;
-        //      if (rentMe === "blank"){
-        //          alert("Please select a vehicle");
-        //      } else if (renterName === ""){
-        //          alert("Please enter your name");
-        //      } else if (rentMe === "blank" && renterName === "");
-        // };
+        function rentCar(){
+             var carChosenByUserFromDropDown = document.getElementById("inCarLot").value;
+             if (carChosenByUserFromDropDown === "2017 BMW 7-Series"){
+                document.getElementById("numAvail").innerHTML=luxuryCars.beemersAvail--;
+            } else if (carChosenByUserFromDropDown === "2018 Range Rover"){
+                document.getElementById("numAvail").innerHTML=luxuryCars.roversAvail--;
+            } else if (carChosenByUserFromDropDown === "2017 Bentley Bentayga"){
+                document.getElementById("numAvail").innerHTML=luxuryCars.roversAvail--;
+            }
+        };
         
         
         </script>
@@ -89,7 +90,7 @@
                     <legend>Your Reservation</legend>
                     <div>
                         <label>Renter Name: </label>
-                        <input id="renterInfo" name="formInput" type="text" placeholder="Enter Your Name Here" required>
+                        <input id="renterInfo" name="formInput" type="text" placeholder="Enter Your Name Here" pattern="[a-zA-Z]" required>
                     </div>
                     <div>
                         <label>Car Type: </label>
@@ -114,12 +115,10 @@
         <h2>Price</h2>
         <p id="carPrice"></p>
         
-        <button id="rentCarButton" onclick="infoNotEntered()">Rent This Car Now</button>
+        <button id="rentCarButton" onclick="infoNotEntered(); rentCar()">Rent This Car Now</button>
         <!--<button onclick="rentRover()">Rent 1 Range Rover</button>-->
         <div>
-            <p>
-                
-            </p>
+            <p id="finalRent"></p>
         </div>
     </body>
     
