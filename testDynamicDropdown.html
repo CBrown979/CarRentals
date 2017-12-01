@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Upgraded Car Rentals</title>
+        <script>
+            var luxuryCars = {
+            carTypes: [
+            {
+                name: "2017 BMW 7-Series",
+                dailyPrice: "BMWs cost $153.00/per day",
+                availability: 27,
+                booked: 18
+            },
+            {
+                name: "2018 Range Rover",
+                dailyPrice: "Range Rovers cost $250.00/per day",
+                availability: 18,
+                booked: 9
+            },
+            {
+                name: "2017 Bentley Bentayga",
+                dailyPrice: "Bentleys cost $370.00/per day",
+                availability: 11,
+                booked: 2
+            }],
+        };
+        
+        for(var i=0; i<luxuryCars.carTypes.length; i++){
+            console.log("start");
+            var dropdownList=document.createElement("SELECT");
+            dropdownList.setAttribute("type", "option");
+        }
+        
+        // var renter = {
+        //     theRenters: []
+        //     };
+        // document.getElementById("rentButton").onclick=function(){
+        //     var renterName = document.getElementById("renterInfo").value;
+        //     var rentedCar = document.getElementById("inCarLot").value;
+        //     console.log(renterName, rentedCar);
+        // } 
+        
+        // function dropDownCarSelections() {
+        //     var carChosenByUserFromDropDown = document.getElementById("inCarLot").value;
+        //     if (carChosenByUserFromDropDown === "2017 BMW 7-Series"){
+        //         document.getElementById("types").innerHTML=luxuryCars.carTypes[0].type;
+        //         document.getElementById("numAvail").innerHTML=luxuryCars.beemersAvail--;
+        //         document.getElementById("carPrice").innerHTML=luxuryCars.carTypes[0].dailyPrice;
+        //     } else if (carChosenByUserFromDropDown === "2018 Range Rover"){
+        //         document.getElementById("types").innerHTML=luxuryCars.carTypes[1].type;
+        //         document.getElementById("numAvail").innerHTML=luxuryCars.roversAvail--;
+        //         document.getElementById("carPrice").innerHTML=luxuryCars.carTypes[1].dailyPrice;
+        //     } else if (carChosenByUserFromDropDown === "2017 Bentley Bentayga"){
+        //         document.getElementById("types").innerHTML=luxuryCars.carTypes[2].type;
+        //         document.getElementById("numAvail").innerHTML=luxuryCars.bentsAvail--;
+        //         document.getElementById("carPrice").innerHTML=luxuryCars.carTypes[2].dailyPrice;
+        //     }
+        // };
+        
+        // function showCarDetails(car){
+        //     console.log(car)
+        //     // document.getElementById("type").innerHTML=luxuryCars.carTypes[car].name;
+        //     // document.getElementById("numAvail").innerHTML=luxuryCars.carTypes[car].availability;
+        //     // document.getElementById("carPrice").innerHTML=luxuryCars.carTypes[car].dailyPrice;
+        // };
+        
+        // for(var i=0; i<luxuryCars.carTypes.length; i++){
+        //     console.log("start");
+        //     var carDropDown=document.createElement("SELECT");
+        //     carDropDown.setAttribute("value", i);
+            
+        // }
+        
+        // function infoNotEntered(){
+        //      var rentMe = document.getElementById("inCarLot").value;
+        //      var renterName=document.getElementById("renterInfo").value;
+        //      if (rentMe === "blank" || renterName === ""){
+        //          alert("Please enter missing information");
+        //      }
+        // };
+        
+        // function rentCar(){
+        //      var carChosenByUserFromDropDown = document.getElementById("inCarLot").value;
+        //      var renterName = document.getElementById("renterInfo").value;
+        //      if (carChosenByUserFromDropDown === "2017 BMW 7-Series"){
+        //          document.getElementById("numAvail").innerHTML=luxuryCars.beemersAvail--;
+        //      } else if (carChosenByUserFromDropDown === "2018 Range Rover") {
+        //          document.getElementById("numAvail").innerHTML=luxuryCars.roversAvail--;
+        //      } else if (carChosenByUserFromDropDown === "2017 Bentley Bentayga") {
+        //          document.getElementById("numAvail").innerHTML=luxuryCars.bentsAvail--;
+        //      } else if (renterName.length >0 && carChosenByUserFromDropDown !== "blank") {
+        //          renter.theRenters.push({theRenter: renterName, carRented: carChosenByUserFromDropDown
+        //          });
+        //      }
+        //      document.getElementById("finalRent").innerHTML="Great choice " + renterName + ", the " + carChosenByUserFromDropDown + " is a great car. Thank you for your order!"
+        // };
+        
+        // function dynamicAddCar(){
+        //     luxuryCars.carTypes.forEach(function(element){
+        //         var carList=document.getElementById("newCarLot");
+        //         var option=document.createElement("option");
+        //         option.text=element.type;
+        //         carList.add(option);
+        //     });
+        // }
+        </script>
+        
+    </head>
+    
+    <body>
+        <!--1) create element -- create variable to assign document.createElement-->
+        <!--2) give it the value -- variable.innerhtml=object.car[i].name-->
+        <!--3) tell it where to go -- document.getElementById(id).appendChild(variable)-->
+        
+        
+        
+        <div>
+            <form id="renterForm">
+                <fieldset>
+                    <legend>Your Reservation</legend>
+                    <div>
+                        <label>Renter Name: </label>
+                        <input id="renterInfo" name="formInput" type="text" placeholder="Enter Your Name Here" pattern="[a-zA-Z]" required>
+                    </div>
+                    <div>
+                        <label>Car Type: </label>
+                        <select id="inCarLot" onchange="dropDownCarSelections()" required>
+                            <option id="selections">
+                                
+                            </option>
+                        </select>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        
+        
+        <div class="container text-center">
+            <h3>Rental Form</h3>
+            <form id="rentalSection">
+                Renter Name: <br>
+                <input type="text" id="renterName">
+                <br>Car Type: <br>
+                <select id="newCarLot" onchange="dynamicAddCar()">
+                    <option value=""></option>
+                </select>
+            </form>
+                
+        </div>
+        
+        
+        <div id="carDetails" class="container">
+            <h1>Luxury Car Rentals</h1>
+            <!--All Car Details-->
+            <h3>Inventory</h3>
+            <p>Car Type: <span id="type"></span></p>
+            <p>Availability: <span id="numAvail"></span></p>
+            <p>Price: <span id="carPrice"></span></p> 
+            
+            
+            <button id="rentCarButton" onclick="infoNotEntered(); rentCar()">Rent This Car Now</button>
+            <div>
+                <p id="finalRent"></p>
+            </div>
+        </div>
+    </body>
+    
+</html>
+
