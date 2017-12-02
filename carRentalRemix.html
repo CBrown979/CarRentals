@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rental Royalty</title>
+</head>
+<body>
+    <h1>Can's Luxury Rentals</h1>
+    
+    <form id="reservationForm">
+        <fieldset>
+            <legend><strong>Rental Information</strong></legend>
+            <div id="dynamicSelections">
+                <label>Car Type: </label> <select id="carLot" onchange="dropDownCarSelections()"></select><br>
+                <label>Renter Name: </label>
+                <input id="renterName" type="text" placeholder="Enter Your Name Here">
+            </div>
+        </fieldset>
+        
+        <div id="carInfo">
+            <h2>Reservation Summary</h2>
+            <p>Verified Selection: <span id="types"></span></p>
+            <p>Availability: <span id="available" ></span></p>
+            <p>Price: <span id="price"></span></p>
+        </div>
+        
+        <button type="submit">Submit</button>
+    </form>
+    
+    <script>
+        var luxuryCars = {
+    carTypes: [
+            {
+                name: "2017 BMW 7-Series",
+                dailyPrice: "BMWs cost $153.00/per day",
+                availability: 27,
+                //booked: 18
+            },
+            {
+                name: "2018 Range Rover",
+                dailyPrice: "Range Rovers cost $250.00/per day",
+                availability: 18,
+                //booked: 9
+            },
+            {
+                name: "2017 Bentley Bentayga",
+                dailyPrice: "Bentleys cost $370.00/per day",
+                availability: 11,
+                //booked: 2
+            },],
+        };
+
+    function dropDownCarSelections() {
+        var carChosenByUserFromDropDown = document.getElementById("carLot").value;
+        if (carChosenByUserFromDropDown === "2017 BMW 7-Series"){
+            document.getElementById("types").innerHTML=luxuryCars.carTypes[0].name;
+            document.getElementById("available").innerHTML=luxuryCars.carTypes[0].availability;
+            document.getElementById("price").innerHTML=luxuryCars.carTypes[0].dailyPrice;
+        } else if (carChosenByUserFromDropDown === "2018 Range Rover"){
+            document.getElementById("types").innerHTML=luxuryCars.carTypes[1].name;
+            document.getElementById("available").innerHTML=luxuryCars.carTypes[1].availability;
+            document.getElementById("price").innerHTML=luxuryCars.carTypes[1].dailyPrice;
+        } else if (carChosenByUserFromDropDown === "2017 Bentley Bentayga"){
+            document.getElementById("types").innerHTML=luxuryCars.carTypes[2].name;
+            document.getElementById("available").innerHTML=luxuryCars.carTypes[2].availability;
+            document.getElementById("price").innerHTML=luxuryCars.carTypes[2].dailyPrice;
+        }
+    };
+
+    for (var i=0; i<luxuryCars.carTypes.length; i++){
+        console.log("start")
+        var dynamicDropCars=document.createElement("OPTION");
+        var x=document.getElementById("carLot");
+        dynamicDropCars.text=luxuryCars.carTypes[i].name;
+        x.add(dynamicDropCars);
+        //dynamicDropCars.setAttribute("onchange", "displayDetails(" + i + ")");
+        console.log("stop")
+    }
+
+    </script>
+</body>
+</html>
